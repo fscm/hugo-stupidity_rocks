@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap');
+@import 'normalize';
+@import 'variables';
+
+body {
+  background-color: $background-color-body;
+  color: $color-body;
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-regular;
+}
+
+@media only screen and (max-width: 400px) {
+  body {
+    font-size: $font-size-smaller;
+  }
+}
+
+#content {
+  position: relative;
+  height: 100vh;
+  min-height: 100vh;
+  min-width: 320px;
+  width: 100%;
+}
+
+#banner {
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}
+
+#footer {
+  bottom: 0;
+  color: $color-footer;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+  .copyright {
+    font-size: 0.7em;
+    list-style: none;
+    padding-left: 0;
+    li {
+      border-left: solid 1px;
+      display: inline-block;
+      line-height: 1;
+      margin-left: 1em;
+      padding-left: 1em;
+      &:first-child {
+        border-left: 0;
+        margin-left: 0;
+        padding-left: 0;
+      }
+    }
+    @media only screen and (max-width: 730px) {
+      li {
+        border-left: 0;
+        display: block;
+        margin-left: 0;
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+#ribbon{
+  width: 300px;
+  background: $background-color-ribbon;
+  box-shadow: 0 0 3px rgba(0,0,0,.3);
+  font-size: 0.7em;
+  position: fixed;
+  top: 20px;
+  left: -210px;
+  padding: 0 100px;
+  text-align: center;
+  color: $color-ribbon;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}

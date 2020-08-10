@@ -1,0 +1,8 @@
+<footer id="footer">
+  <div class="inner">
+    <ul class="copyright">
+      <li>{{ if .Site.Params.Copyright }}{{ .Site.Params.Copyright | safeHTML }}{{ else }}Copyright &copy; {{ now.Year }}{{ end }}</li>
+      {{ if .Site.Params.Madein }}<li>{{ .Site.Params.Madein | safeHTML }}</li>{{ end }}
+    </ul>
+  </div>
+</footer>

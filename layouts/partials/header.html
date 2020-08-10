@@ -1,0 +1,11 @@
+<header id="header" class="alt">
+  {{- if .Site.Params.ribbonText -}}
+  <div id="ribbon">
+    <p>{{ .Site.Params.ribbonText | safeHTML }}</p>
+  </div>
+  {{- end -}}
+  <div id="banner">
+    <h1>{{ if .Site.Params.bannerTitle }}{{ .Site.Params.bannerTitle | safeHTML }}{{ else }}{{ .Site.Title }}{{ end }}</h1>
+    {{ if .Site.Params.bannerDescription }}<p>{{ .Site.Params.bannerDescription | safeHTML }}</p>{{ end }}
+  </div>
+</header>

@@ -1,0 +1,16 @@
+# Stupidity Rocks Hugo theme
+# Configuration parameters.
+
+theme = "stupidity_rocks"
+title = "Page Title"
+
+disableKinds = ["page", "RSS", "section", "taxonomy", "term"]
+
+[params]
+  bannerTitle = "Banner Title"
+  bannerDescription = "Banner description."
+  copyright = "Copyright message"
+  favicon = "favicon.ico"
+  madein = "'Made in' message"
+  ribbonText = "Ribbon Text"
+  rss = false
