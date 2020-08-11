@@ -20,9 +20,9 @@
   {{ $styles := resources.Get "sass/main.scss" | resources.ToCSS (dict "targetPath" "css/main.css" "outputStyle" "compressed") }}
   <link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen" integrity="{{ ($styles | resources.Fingerprint "sha384").Data.Integrity }}" crossorigin="anonymous" />
   {{- if .Site.Params.favicon -}}
-  <link rel="shortcut icon" type="image/x-icon" href="{{ .Site.Params.favicon | absURL }}">
-  <link rel="shortcut icon" type="image/x-icon" href="{{ .Site.Params.favicon | relURL }}">
-  <link rel="icon" type="image/x-icon" href="{{ .Site.Params.favicon | absURL }}">
-  <link rel="icon" type="image/x-icon" href="{{ .Site.Params.favicon | relURL }}">
+  <link rel="shortcut icon" type="image/x-icon" href="{{ .Site.Params.favicon | absURL }}" />
+  <link rel="shortcut icon" type="image/x-icon" href="{{ .Site.Params.favicon | relURL }}" />
+  <link rel="icon" type="image/x-icon" href="{{ .Site.Params.favicon | absURL }}" />
+  <link rel="icon" type="image/x-icon" href="{{ .Site.Params.favicon | relURL }}" />
   {{- end -}}
 </head>
