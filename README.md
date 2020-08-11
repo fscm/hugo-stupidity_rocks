@@ -26,6 +26,13 @@ command:
 git clone https://github.com/fscm/hugo-stupidity_rocks themes/stupidity_rocks
 ```
 
+if you already use git for the Hugo site you can add the theme as a submodule
+using the following command instead:
+
+```
+git submodule add git@github.com:fscm/hugo-stupidity_rocks.git themes/stupidity_rocks
+```
+
 **Note:** Take a look at the `config.toml` file on the root folder of this
 theme to have an ideia of how to configure your site to use it.
 
