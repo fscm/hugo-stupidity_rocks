@@ -6,11 +6,19 @@ title = "Page Title"
 
 disableKinds = ["page", "RSS", "section", "taxonomy", "term"]
 
+[author]
+  name = "Site Author"
+
 [params]
   bannerTitle = "Banner Title"
-  bannerDescription = "Banner description."
+  bannerMessage = "Banner message."
   copyright = "Copyright message"
-  favicon = "favicon.ico"
+  description = "Website description"
   madein = "'Made in' message"
   ribbonText = "Ribbon Text"
-  rss = false
+
+[params.colors]
+  background = "#293f50"
+  font = "#f1f3f4"
+  ribbonBackground = "#1a1b1f"
+  ribbonFont = "#f1f3f4"

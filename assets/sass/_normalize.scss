@@ -1,15 +1,37 @@
-// normalize
+/* _normalize.scss                                     */
+/*                                                     */
+/* sass code to make browsers render all elements more */
+/* consistently.                                       */
+/*                                                     */
+/* copyright: 2019-2020, Frederico Martins             */
+/* author: Frederico Martins <http://github.com/fscm>  */
+/* license: SPDX-License-Identifier: MIT               */
+
+*,
+ ::before, ::after {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+::after, ::before {
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
 
 html {
+  cursor: default;
+  font-family: sans-serif;
   line-height: 1.15;
+  tab-size: 4;
+  word-break: break-word;
+  -moz-tab-size: 4;
+  -ms-text-size-adjust: 100%;
+  -o-tab-size: 4;
+  -webkit-tap-highlight-color: transparent;
   -webkit-text-size-adjust: 100%;
 }
 
-body {
-  margin: 0;
-}
-
-main {
+details, main {
   display: block;
 }
 
@@ -36,35 +58,206 @@ h4, h5, h6 {
 hr {
   box-sizing: content-box;
   height: 0;
-  overflow: visible;
-}
-
-pre {
-  font-family: monospace, monospace;
-  font-size: 1em;
 }
 
 a {
   background-color: transparent;
 }
 
+body, button, dl dl, dl ol, dl ul, input, ol dl, ol ol, ol ul, optgroup, select, ul dl, ul ol, ul ul {
+  margin: 0;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+}
+
+button, hr, input {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+[type=button], [type=reset], [type=submit], button {
+  -webkit-appearance: button;
+}
+
+::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+:-moz-focusring {
+  outline: 1px dotted #000;
+}
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
 abbr[title] {
   border-bottom: none;
-  text-decoration: underline;
   text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
 }
 
 b, strong {
   font-weight: bolder;
 }
 
-code, kbd, samp {
+code, kbd, pre, samp {
   font-family: monospace, monospace;
   font-size: 1em;
 }
 
+audio, canvas, iframe, img, svg, video {
+  vertical-align: middle;
+}
+
+audio, canvas, video {
+  display: inline-block;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+iframe, img {
+  border-style: none;
+}
+
+nav ol, nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+svg:not([fill]) {
+  fill: currentColor;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
 small {
   font-size: 80%;
+}
+
+fieldset {
+  border: 1px solid #a0a0a0;
+  padding: .35em .75em .625em;
+}
+
+legend {
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  white-space: normal;
+}
+
+progress {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+textarea {
+  margin: 0;
+  overflow: auto;
+  resize: vertical;
+}
+
+[type=checkbox], [type=radio], legend {
+  box-sizing: border-box;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+}
+
+[type=search] {
+  outline-offset: -2px;
+  -webkit-appearance: textfield;
+}
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-inner-spin-button, ::-webkit-outer-spin-button {
+  height: auto;
+}
+
+::-webkit-file-upload-button {
+  font: inherit;
+  -webkit-appearance: button;
+}
+
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: .54;
+}
+
+dialog {
+  background-color: #fff;
+  border: solid;
+  color: #000;
+  display: block;
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
+  left: 0;
+  margin: auto;
+  padding: 1em;
+  position: absolute;
+  right: 0;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+}
+
+dialog:not([open]) {
+  display: none;
+}
+
+summary {
+  display: list-item;
+}
+
+[tabindex], a, area, button, input, label, select, summary, textarea {
+  touch-action: manipulation;
+  -ms-touch-action: manipulation;
+}
+
+[hidden], template {
+  display: none;
+}
+
+[aria-busy=true] {
+  cursor: progress;
+}
+
+[aria-controls] {
+  cursor: pointer;
+}
+
+[aria-disabled=true], [disabled] {
+  cursor: not-allowed;
+}
+
+[aria-hidden=false][hidden] {
+  display: initial;
+}
+
+[aria-hidden=false][hidden]:not(:focus) {
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
 }
 
 sub, sup {
@@ -75,101 +268,9 @@ sub, sup {
 }
 
 sub {
-  bottom: -0.25em;
+  bottom: -.25em;
 }
 
 sup {
-  top: -0.5em;
-}
-
-img {
-  border-style: none;
-}
-
-button, input, optgroup, select, textarea {
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 0;
-}
-
-button, input {
-  overflow: visible;
-}
-
-button, select {
-  text-transform: none;
-}
-
-button, [type="button"], [type="reset"], [type="submit"] {
-  -webkit-appearance: button;
-}
-
-button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-button:-moz-focusring, [type="button"]:-moz-focusring, [type="reset"]:-moz-focusring, [type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
-fieldset {
-  padding: 0.35em 0.75em 0.625em;
-}
-
-legend {
-  box-sizing: border-box;
-  color: inherit;
-  display: table;
-  max-width: 100%;
-  padding: 0;
-  white-space: normal;
-}
-
-progress {
-  vertical-align: baseline;
-}
-
-textarea {
-  overflow: auto;
-}
-
-[type="checkbox"], [type="radio"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-
-[type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
-[type="search"] {
-  -webkit-appearance: textfield;
-  outline-offset: -2px;
-}
-
-[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-
-::-webkit-file-upload-button {
-  -webkit-appearance: button;
-  font: inherit;
-}
-
-details {
-  display: block;
-}
-
-summary {
-  display: list-item;
-}
-
-template {
-  display: none;
-}
-
-[hidden] {
-  display: none;
+  top: -.5em;
 }

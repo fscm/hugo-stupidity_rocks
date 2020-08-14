@@ -1,9 +1,9 @@
 <head>
-  <title>{{ .Site.Title }}</title>
+  <title>{{ or .Page.Title .Site.Title }}</title>
   <meta charset="utf-8" />
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="author" content="Frederico Martins" />
-  <meta name="description" content="stupidity rocks description" />
+  {{ with .Site.Author.name }}<meta name="author" content="{{ . }}" />{{ end }}
+  {{ with .Site.Params.description }}<meta name="description" content="{{ . }}" />{{ end }}
   {{ hugo.Generator }}
   <meta name="keywords" content="stupidity, rocks" />
   <meta name="language" content="English" />
@@ -11,17 +11,13 @@
   <meta name="robots" content="index, follow" />
   <meta name="title" content="Stupidity Rocks" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  {{- if .Site.Params.rss -}}
-    {{ range .AlternativeOutputFormats }}
+  {{- range .AlternativeOutputFormats -}}
   {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-    {{- end -}}
   {{- end -}}
-  {{ $styles := resources.Get "sass/main.scss" | resources.ToCSS (dict "targetPath" "css/main.css" "outputStyle" "compressed") }}
+  {{- $styles := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "main.css" . | toCSS (dict "targetPath" "css/main.css" "outputStyle" "compressed") -}}
   <link rel="stylesheet" href="{{ $styles.Permalink }}" media="screen" integrity="{{ ($styles | resources.Fingerprint "sha384").Data.Integrity }}" crossorigin="anonymous" />
-  {{- if .Site.Params.favicon -}}
-  <link rel="shortcut icon" type="image/x-icon" href="{{ .Site.Params.favicon | absURL }}" />
-  <link rel="shortcut icon" type="image/x-icon" href="{{ .Site.Params.favicon | relURL }}" />
-  <link rel="icon" type="image/x-icon" href="{{ .Site.Params.favicon | absURL }}" />
-  <link rel="icon" type="image/x-icon" href="{{ .Site.Params.favicon | relURL }}" />
-  {{- end -}}
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}">
+  <link rel="manifest" href="{{ "site.webmanifest" | relURL }}">
 </head>

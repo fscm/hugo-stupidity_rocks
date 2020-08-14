@@ -1,13 +1,13 @@
 # stupidity_rocks theme metadata
 
-description = "stupidity.rocks website theme"
-homepage = "http://stupidity.rocks/"
+name = "stupidity_rocks"
 license = "MIT"
 licenselink = "https://github.com/fscm/hugo-stupidity_rocks/blob/master/LICENSE"
-min_version = "0.68.0"
-name = "stupidity_rocks"
+description = "stupidity.rocks website theme"
+homepage = "https://github.com/fscm/hugo-stupidity_rocks/"
+tags = ["minimal", "responsive", "simple", "single page", "landing page"]
 features = []
-tags = []
+min_version = "0.74.0"
 
 [author]
   name = "Frederico Martins"
