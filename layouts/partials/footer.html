@@ -1,8 +1,7 @@
 <footer>
-  <div class="inner">
-    <ul class="copyright">
-      <li>{{ if .Site.Params.Copyright }}{{ .Site.Params.Copyright | safeHTML }}{{ else }}Copyright &copy; {{ now.Year }}{{ end }}</li>
-      {{ if .Site.Params.Madein }}<li>{{ .Site.Params.Madein | safeHTML }}</li>{{ end }}
-    </ul>
-  </div>
+  <ul>
+    <li>{{ if .Site.Copyright }}{{ .Site.Copyright | safeHTML }}{{ else }}&copy; {{ now.Year }}{{ end }}</li>
+    <li><a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0">CC BY-NC-ND 4.0</a></li>
+    {{ with .Site.Params.Madein }}<li>{{ . | safeHTML }}</li>{{ end }}
+  </ul>
 </footer>

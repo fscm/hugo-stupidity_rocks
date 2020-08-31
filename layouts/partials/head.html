@@ -6,7 +6,7 @@
   {{ with .Site.Params.description }}<meta name="description" content="{{ . }}" />{{ end }}
   {{ hugo.Generator }}
   <meta name="keywords" content="stupidity, rocks" />
-  <meta name="language" content="English" />
+  <meta name="language" content="{{ .Site.Language.Lang }}" />
   <meta name="revisit-after" content="30 days" />
   <meta name="robots" content="index, follow" />
   <meta name="title" content="Stupidity Rocks" />

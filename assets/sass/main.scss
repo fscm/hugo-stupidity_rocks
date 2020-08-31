@@ -6,99 +6,137 @@
 /* author: Frederico Martins <http://github.com/fscm>  */
 /* license: SPDX-License-Identifier: MIT               */
 
+/* INCLUDES */
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap');
 @import 'normalize';
 
-$background-color-body: {{ .Site.Params.Colors.background | default "#293f50" }};
-$background-color-ribbon: {{ .Site.Params.Colors.ribbonBackground | default "#1a1b1f" }};
+/* VARIABLES */
+$background-color: {{ .Site.Params.Style.backgroundColor | default "#293f50" }};
+$background-color-ribbon: {{ .Site.Params.Style.backgroundColorRibbon | default "#1a1b1f" }};
+$font-bold: {{ .Site.Params.Style.fontWeightBold | default "700" }};
+$font-color: {{ .Site.Params.Style.fontColor | default "#f1f3f4" }};
+$font-color-hover: {{ .Site.Params.Style.fontColorHover | default "#f1f3f4" }};
+$font-color-ribbon: {{ .Site.Params.Style.fontColorRibbon | default "#f1f3f4" }};
+$font-family: {{ .Site.Params.Style.fontFamily | default "'Work Sans', sans-serif" }};
+$font-regular: {{ .Site.Params.Style.fontWeightRegular | default "400" }};
+$font-size: {{ .Site.Params.Style.fontSize | default "16px" }};
+$font-size-alt: {{ .Site.Params.Style.fontSizeAlt | default "12px" }};
 
-$color-body: {{ .Site.Params.Colors.font | default "#f1f3f4" }};
-$color-footer: rgba($color-body, 0.5);
-$color-ribbon: {{ .Site.Params.Colors.ribbonFont | default "#f1f3f4" }};
+$__screen-sm-min: 768px;
+$__screen-xs-max: ($__screen-sm-min - 1);
+$__screen-md-min: 992px;
+$__screen-sm-max: ($__screen-md-min - 1);
+$__screen-lg-min: 1200px;
+$__screen-md-max: ($__screen-lg-min - 1);
+$__padding: 0.5em;
 
-$font-bold: 700;
-$font-family: 'Work Sans', sans-serif;
-$font-regular: 400;
-$font-size: 16px;
-$font-size-smaller: 13px;
+/* STYLE */
+body, html {
+    height: 100%
+}
+
+html {
+  background-color: $background-color;
+  color: $font-color;
+}
 
 body {
-  background-color: $background-color-body;
-  color: $color-body;
+  align-items: center;
   font-family: $font-family;
   font-size: $font-size;
   font-weight: $font-regular;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
 }
 
-@media only screen and (max-width: 400px) {
-  body {
-    font-size: $font-size-smaller;
+a {
+  border: 0;
+  color: $font-color;
+  text-decoration: none;
+  &:hover {
+    color: $font-color-hover;
+  }
+}
+
+footer, header {
+  justify-content: center;
+  margin: 0 1em;
+  max-width: 670px;
+  text-align: center;
+}
+
+footer {
+  flex-grow: 0;
+  flex-shrink: 1;
+  font-size: 0.8em;
+  padding: $__padding;
+  ul {
+    display: inline-block;
+    list-style: none;
+    padding: 0;
+    li {
+      //line-height: 1;
+      list-style: none;
+      display: inline;
+      margin-right: 0.5em;
+      white-space: nowrap;
+      &:after {
+        content: " \00b7";
+      }
+      &:last-child:after {
+        content: none;
+      }
+    }
+  }
+}
+
+header {
+  display: flex;
+  flex-basis: 100%;
+  flex-direction: column;
+  flex-grow: 0;
+  flex-shrink: 1;
+  padding: $__padding;
+  text-align: justify;
+  text-justify: inter-word;
+  h1 {
+    font-size: 3em;
+    margin: 0.5em 0;
+  }
+  p {
+    margin: 1em 0;
+  }
+  .ribbon{
+    background: $background-color-ribbon;
+    box-shadow: 0 0 0.5rem rgba($background-color-ribbon, 0.5);
+    color: $font-color-ribbon;
+    font-size: 0.75em;
+    left: -3rem;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    top: 1.5rem;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    width: 12rem;
   }
 }
 
 main {
-  position: relative;
-  height: 100vh;
-  min-height: 100vh;
-  min-width: 320px;
-  width: 100%;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
 }
 
-#banner {
-  left: 50%;
-  position: fixed;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  p {
-    text-align: justify;
-    text-justify: inter-word;
+.content {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+@media only screen and (max-width: $__screen-xs-max) {
+  body {
+    font-size: $font-size-alt;
   }
-}
-
-footer {
-  bottom: 0;
-  color: $color-footer;
-  left: 50%;
-  position: absolute;
-  text-align: center;
-  transform: translateX(-50%);
-  .copyright {
-    font-size: 0.7em;
-    list-style: none;
-    padding-left: 0;
-    li {
-      border-left: solid 1px;
-      display: inline-block;
-      line-height: 1;
-      margin-left: 1em;
-      padding-left: 1em;
-      &:first-child {
-        border-left: 0;
-        margin-left: 0;
-        padding-left: 0;
-      }
-    }
-    @media only screen and (max-width: 730px) {
-      li {
-        border-left: 0;
-        display: block;
-        margin-left: 0;
-        padding-left: 0;
-      }
-    }
-  }
-}
-
-#ribbon{
-  width: 300px;
-  background: $background-color-ribbon;
-  box-shadow: 0 0 3px rgba(0,0,0,.3);
-  font-size: 0.7em;
-  position: fixed;
-  top: 20px;
-  left: -105px;
-  text-align: center;
-  color: $color-ribbon;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
 }

@@ -1,24 +1,28 @@
 # Stupidity Rocks Hugo theme
 # Configuration parameters.
 
+copyright = "Copyright message"
 theme = "stupidity_rocks"
 title = "Page Title"
-
-disableKinds = ["page", "RSS", "section", "taxonomy", "term"]
 
 [author]
   name = "Site Author"
 
 [params]
-  bannerTitle = "Banner Title"
-  bannerMessage = "Banner message."
-  copyright = "Copyright message"
+  headerTitle = "Banner Title"
+  headerSubtitle = "Banner message."
   description = "Website description"
   madein = "'Made in' message"
   ribbonText = "Ribbon Text"
 
-[params.colors]
-  background = "#293f50"
-  font = "#f1f3f4"
-  ribbonBackground = "#1a1b1f"
-  ribbonFont = "#f1f3f4"
+  [params.style]
+    backgroundColor = "#293f50"
+    backgroundColorRibbon = "#1a1b1f"
+    fontColor = "#f1f3f4"
+    fontColorHover = "#f1f3f4"
+    fontColorRibbon = "#f1f3f4"
+
+[module]
+  [module.hugoVersion]
+    min = "0.74.0"
+    extended = true
